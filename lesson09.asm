@@ -6,7 +6,7 @@ msg2 db  'Hello, ',0
 
 ; This section is for unitialize variables
 section .bss
-entry   db  255     ; entry will be byte length 255
+entry   resb  255     ; entry will be byte length 255
 
 section .text
 global _start
