@@ -55,3 +55,9 @@ end:
     mov ebx, 0
     int 80h
     ret
+
+quit:
+    mov eax, 1
+    mov ebx, 0
+    int 80h
+    ret
