@@ -18,7 +18,7 @@ end_strlen:
 
 ; Prints a string to standard output
 ; @param EAX address of the string to print
-print:
+sprint:
     ; All three registers to the stack, we will use them here
     push ecx
     push ebx
@@ -33,6 +33,20 @@ print:
     pop edx
     pop ebx
     pop ecx
+    ret
+
+; Prints a string and return carriage to standard output
+; @param EAX address of the string to print
+sprintn:
+    call sprint     ; print the string
+    push eax        ; We will use eax, so preserve it
+    mov eax, 0Ah    ; Put return carriage in eax
+    push eax        ; Put eax in the stack
+    mov eax, esp    ; set eax to the pointer to the current stack
+    call sprint
+    ; Everything back to normal
+    pop eax
+    pop eax
     ret
 
 ; Ends a program normally
