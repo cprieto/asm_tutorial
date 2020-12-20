@@ -1,0 +1,8 @@
+{
+  "name": "nasm Linux",
+  "extensions": [
+    "rights.nas-vscode"
+  ],
+  "dockerFile": "Dockerfile",
+  "image": "cprieto/nasm"
+}

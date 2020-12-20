@@ -1,0 +1,44 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build object file",
+            "type": "process",
+            "command": "nasm",
+            "args": [
+                "-f",
+                "elf32",
+                "-o ${fileBasenameNoExtension}.o",
+                "${file}"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
+        },
+        {
+            "label": "Link program",
+            "type": "process",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": [
+                "Build object file"
+            ],
+            "command": "ld",
+            "args": [
+                "-m",
+                "elf_i386",
+                "-o",
+                "${fileBasenameNoExtension}",
+                "${fileBasenameNoExtension}.o"
+            ]
+        }
+    ]
+}
