@@ -61,3 +61,49 @@ quit:
     mov ebx, 0
     int 80h
     ret
+
+; Print an integer number (itoa)
+; @param eax the integer number to print
+iprint:
+    push eax
+    push ecx
+    push edx
+    push esi
+    mov ecx, 0      ; counter how many bytes we print at the end
+divloop:
+    inc ecx
+    mov edx, 0      ; empty edx
+    mov esi, 10     ; 10 to esi
+    div esi         ; Divide eax by esi
+    add edx, 48     ; edx has the remainder, convert to ascii adding 48
+    push edx        ; push that string repr into the stack
+    cmp eax, 0      ; Can the quotient be divided?
+    jnz divloop     ; Continue dividing the quotient
+
+printloop:
+    dec ecx         ; We are going in reverse
+    mov eax, esp    ; Move the stack pointer to eax
+    call sprint     ; Print the string
+    pop eax         ; Get the next value in the stack
+    cmp ecx, 0      ; Is this the last digit?
+    jnz printloop   ; Continue the printing
+
+    ; Turn everything back to where it was
+    pop esi
+    pop edx
+    pop ecx
+    pop eax
+    ret
+
+; Print an integer number with a carriage return (itoa)
+iprintn:
+    call iprint     ; Call the normal iprint function
+    push eax        ; We are going to use eax, save the value
+    mov eax, 0Ah    ; Put carriage return in eax
+    push eax        ; Save the eax in the stack
+    mov eax, esp    ; Put the pointer to the stack in eax
+    call sprint     ; Call sprint with the carriage return
+    ; Everything is back to normal
+    pop eax
+    pop eax
+    ret
