@@ -14,3 +14,4 @@ My lesson files for the [Learning Assembly using NASM](https://asmtutor.com) les
  - Lesson 10: Counting from 0 to 9
  - Lesson 11: A simple itoa function
  - Lesson 12: Adding numbers
+ - Lesson 13: Substracting numbers
