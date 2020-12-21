@@ -13,3 +13,4 @@ My lesson files for the [Learning Assembly using NASM](https://asmtutor.com) les
  - Lesson 9: BSS and reading input from std in
  - Lesson 10: Counting from 0 to 9
  - Lesson 11: A simple itoa function
+ - Lesson 12: Adding numbers
