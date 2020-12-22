@@ -21,3 +21,4 @@ Lessons finished:
  - Lesson 11: A simple itoa function
  - Lesson 12: Adding numbers
  - Lesson 13: Substracting numbers
+ - Lesson 14: Multiplication
