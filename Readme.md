@@ -22,3 +22,4 @@ Lessons finished:
  - Lesson 12: Adding numbers
  - Lesson 13: Substracting numbers
  - Lesson 14: Multiplication
+ - Lesson 15: Division
