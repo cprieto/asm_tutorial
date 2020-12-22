@@ -2,6 +2,12 @@
 
 My lesson files for the [Learning Assembly using NASM](https://asmtutor.com) lessons.
 
+Resources to use together with this tutorial:
+ - List of Linux system calls: http://faculty.nps.edu/cseagle/assembly/sys_call.html
+ - ASCII char table: https://ascii.cl/
+
+Lessons finished:
+
  - Lesson 1: A "faulty" hello world
  - Lesson 2: A non-faulty hello world
  - Lesson 3: Counting string length
