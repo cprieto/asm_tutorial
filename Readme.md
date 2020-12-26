@@ -24,3 +24,4 @@ Lessons finished:
  - Lesson 14: Multiplication
  - Lesson 15: Division
  - Lesson 16: atoi
+ - Lesson 17: Namespaces
