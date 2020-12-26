@@ -5,12 +5,13 @@ strlen:
     ; Address of message in eax
     push ebx          ; Add ebx to the stack
     mov ebx, eax      ; Copy eax to ebx
-nextchar:
+.nextchar:
     cmp byte [eax], 0 ; Compare value at address of eax to 0
-    jz end_strlen     ; Jump to finished if they are equal
+    jz ._end_strlen     ; Jump to finished if they are equal
     inc eax           ; Increment eax
-    jmp nextchar      ; Jump to nextchar
-end_strlen:
+    jmp .nextchar      ; Jump to nextchar
+
+._end_strlen:
     sub eax, ebx      ; Substract ebx to eax
     ; Length will be in eax
     pop ebx           ; Return ebx to the stack
@@ -70,7 +71,7 @@ iprint:
     push edx
     push esi
     mov ecx, 0      ; counter how many bytes we print at the end
-divloop:
+.divloop:
     inc ecx
     mov edx, 0      ; empty edx
     mov esi, 10     ; 10 to esi
@@ -78,15 +79,15 @@ divloop:
     add edx, 48     ; edx has the remainder, convert to ascii adding 48
     push edx        ; push that string repr into the stack
     cmp eax, 0      ; Can the quotient be divided?
-    jnz divloop     ; Continue dividing the quotient
+    jnz .divloop     ; Continue dividing the quotient
 
-printloop:
+.printloop:
     dec ecx         ; We are going in reverse
     mov eax, esp    ; Move the stack pointer to eax
     call sprint     ; Print the string
     pop eax         ; Get the next value in the stack
     cmp ecx, 0      ; Is this the last digit?
-    jnz printloop   ; Continue the printing
+    jnz .printloop   ; Continue the printing
 
     ; Turn everything back to where it was
     pop esi
@@ -106,4 +107,43 @@ iprintn:
     ; Everything is back to normal
     pop eax
     pop eax
+    ret
+
+; Convert ascii into an integer (atoi)
+; @param eax Pointer to number to convert
+; @return eax Converted integer
+atoi:
+    push ebx
+    push ecx
+    push edx
+    push esi
+    mov esi, eax    ; eax has the number to convert, copy to esi
+    mov eax, 0      ; Current number
+    mov ecx, 0      ; Counter of numbers
+
+.multiplyLoop:
+    xor ebx, ebx
+    mov bl, [esi+ecx]
+    cmp bl, 48
+    jl .atoi_finished
+    cmp bl, 57
+    jg .atoi_finished
+    sub bl, 48
+    add eax, ebx
+    mov ebx, 10
+    mul ebx
+    inc ecx
+    jmp .multiplyLoop
+
+.atoi_finished:
+    cmp ecx, 0
+    je .restore
+    mov ebx, 10
+    div ebx
+
+.restore:
+    pop esi
+    pop edx
+    pop ecx
+    pop ebx
     ret
