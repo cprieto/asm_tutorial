@@ -26,7 +26,8 @@ Lessons finished:
  - Lesson 16: atoi
  - Lesson 17: Namespaces
  - Lesson 18: FizzBuzz
- - Lesson 19: Execute command
- - Lesson 20: Fork
- - Lesson 21: Time
- - Lesson 22: Create file
+ - Lesson 19: sys_execve
+ - Lesson 20: sys_fork
+ - Lesson 21: sys_time
+ - Lesson 22: sys_creat
+ - Lesson 23: sys_write
