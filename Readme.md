@@ -25,3 +25,4 @@ Lessons finished:
  - Lesson 15: Division
  - Lesson 16: atoi
  - Lesson 17: Namespaces
+ - Lesson 18: FizzBuzz
