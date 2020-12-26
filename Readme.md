@@ -28,3 +28,4 @@ Lessons finished:
  - Lesson 18: FizzBuzz
  - Lesson 19: Execute command
  - Lesson 20: Fork
+ - Lesson 21: Time
