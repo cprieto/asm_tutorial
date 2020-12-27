@@ -31,3 +31,4 @@ Lessons finished:
  - Lesson 21: sys_time
  - Lesson 22: sys_creat
  - Lesson 23: sys_write
+ - Lesson 24: sys_open
