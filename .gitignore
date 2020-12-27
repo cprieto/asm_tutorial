@@ -2,3 +2,5 @@
 !*.asm
 !.gitignore
 !*.md
+!Makefile
+
