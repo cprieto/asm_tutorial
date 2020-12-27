@@ -33,3 +33,4 @@ Lessons finished:
  - Lesson 23: sys_write
  - Lesson 24: sys_open
  - Lesson 25: sys_read
+ - Lesson 26: sys_close
