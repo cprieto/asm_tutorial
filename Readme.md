@@ -39,3 +39,4 @@ Lessons finished:
  - Lesson 29: sys_socketcall, open
  - Lesson 30: sys_socketcall, bind
  - Lesson 31: sys_socketcall, listen
+ - Lesson 32: sys_socketcall, accept

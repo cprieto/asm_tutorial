@@ -4,7 +4,7 @@ name    db  'readme.txt',0
 content db  '-updated-',0
 
 section .bss
-handler resd  1
+handler resd  1   ; File handlers are double word
 
 section .text
   global _start

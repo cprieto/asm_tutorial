@@ -1,8 +1,5 @@
 %include 'functions.asm'
 
-section .bss
-  handler resw  1  
-
 section .text
   global _start
 
@@ -16,10 +13,9 @@ _start:
   mov ecx, esp      ; parameters
   int 80h
 
-  mov [handler], eax
-
-  mov eax, [handler]
   call iprintn
+  
+  mov edi, eax
 
 _bind:
   push dword 0        ; IP ADDRESS
@@ -28,7 +24,7 @@ _bind:
   mov ecx, esp        ; Arguments
   push byte 16        ; Argument list, dword + word + word = 16
   push ecx            ; Pointer to parameters
-  push word [handler] ; handler
+  push edi            ; handler
   mov ecx, esp        ; Pointer to arguments
   mov ebx, 2          ; Bind
   mov eax, 102        ; sys_socketcall
