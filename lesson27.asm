@@ -20,7 +20,7 @@ _start:
   mov eax, 19         ; sys_lseek
   mov ebx, [handler]  ; eax has the file handler
   mov ecx, 0          ; move 0 bytes...
-  mov edx, 1          ; from the end (SEEK_END)
+  mov edx, 2          ; from the end (SEEK_END)
   int 80h
 
   mov eax, content
