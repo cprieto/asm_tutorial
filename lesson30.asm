@@ -1,7 +1,7 @@
 %include 'functions.asm'
 
 section .bss
-  handler resb  1  
+  handler resw  1  
 
 section .text
   global _start
@@ -22,14 +22,13 @@ _start:
   call iprintn
 
 _bind:
-  mov edi, [handler]
   push dword 0        ; IP ADDRESS
   push word 0x2923    ; Port 9001 = 2329h, in reverse order
   push word 2         ; AF_INET
   mov ecx, esp        ; Arguments
   push byte 16        ; Argument list, dword + word + word = 16
   push ecx            ; Pointer to parameters
-  push byte [handler] ; handler
+  push word [handler] ; handler
   mov ecx, esp        ; Pointer to arguments
   mov ebx, 2          ; Bind
   mov eax, 102        ; sys_socketcall
