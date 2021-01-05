@@ -37,5 +37,6 @@ Lessons finished:
  - Lesson 27: sys_lseek
  - Lesson 28: sys_unlink
  - Lesson 29: sys_socketcall, open
+ - Lesson 30: sys_socketcall, bind
  
  

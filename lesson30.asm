@@ -21,4 +21,18 @@ _start:
   mov eax, [handler]
   call iprintn
 
+_bind:
+  mov edi, [handler]
+  push dword 0        ; IP ADDRESS
+  push word 0x2923    ; Port 9001 = 2329h, in reverse order
+  push word 2         ; AF_INET
+  mov ecx, esp        ; Arguments
+  push byte 16        ; Argument list, dword + word + word = 16
+  push ecx            ; Pointer to parameters
+  push byte [handler] ; handler
+  mov ecx, esp        ; Pointer to arguments
+  mov ebx, 2          ; Bind
+  mov eax, 102        ; sys_socketcall
+  int 80h
+
   call quit
