@@ -40,3 +40,6 @@ Lessons finished:
  - Lesson 30: sys_socketcall, bind
  - Lesson 31: sys_socketcall, listen
  - Lesson 32: sys_socketcall, accept
+ - Lesson 33: sys_socketcall, read
+ - Lesson 34: sys_socketcall, write
+ 

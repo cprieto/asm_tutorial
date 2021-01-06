@@ -1,6 +1,9 @@
 %include 'functions.asm'
 %include 'syscalls.asm'
 
+section .data
+  response db 'HTTP/1.1 200 OK', 0Dh, 0Ah, 'Content-Type: text/html', 0Dh, 0Ah, 'Content-Length: 14', 0Dh, 0Ah, 0Dh, 0Ah, 'Hello World!', 0Dh, 0Ah, 0h
+
 section .bss
   handler resd  1
   buffer  resb  255
@@ -65,7 +68,11 @@ _read:
   mov edx, 255
   int 80h
 
-  mov eax, buffer
-  call sprintn
+_write:
+  mov eax, SYS_WRITE
+  mov ebx, edi
+  mov ecx, response
+  mov edx, 78
+  int 80h
 
   call quit
