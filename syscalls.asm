@@ -1,5 +1,7 @@
 %define SYS_FORK 2
 %define SYS_READ 3
+%define SYS_WRITE 4
+%define SYS_CLOSE 6
 %define SYS_SOCKETCALL 102
 
 ; socket operations

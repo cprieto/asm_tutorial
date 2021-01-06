@@ -42,4 +42,5 @@ Lessons finished:
  - Lesson 32: sys_socketcall, accept
  - Lesson 33: sys_socketcall, read
  - Lesson 34: sys_socketcall, write
- 
+ - Lesson 35: Closing the socket
+
