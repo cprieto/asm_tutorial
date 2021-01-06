@@ -1,10 +1,12 @@
-# Linux assembly learning
+# Learning my linux Assembly
 
 My lesson files for the [Learning Assembly using NASM](https://asmtutor.com) lessons.
 
 Resources to use together with this tutorial:
  - List of Linux system calls: http://faculty.nps.edu/cseagle/assembly/sys_call.html
  - ASCII char table: https://ascii.cl/
+
+This was my way to get use to the NASM syntax, it was a good excercise!
 
 Lessons finished:
 
